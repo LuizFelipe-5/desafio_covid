@@ -31,84 +31,101 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Color(0xFFF3F4F9),
       body: ListView(
         children: [
-          ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Color(0xFFFBFBFD),
-              child: Image.asset(
-                './lib/assets/images/logo.png',
+          Card(
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Color(0xFFFBFBFD),
+                child: Image.asset(
+                  './lib/assets/images/asia.png',
+                ),
               ),
+              title: Text('Asia'),
+              subtitle: Text('45 países'),
+              trailing: Image.asset('./lib/assets/images/arrow_right.svg'),
+              onTap: () {
+                print('ok');
+              },
             ),
-            title: Text('Asia'),
-            subtitle: Text('45 países'),
-            trailing: Icon(Icons.arrow_right_outlined),
-            onTap: () {
-              print('ok');
-            },
           ),
-          ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Color(0xFFFBFBFD),
-              child: Image.asset(
-                './lib/assets/images/logo.png',
+          Card(
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Color(0xFFFBFBFD),
+                child: Image.asset(
+                  './lib/assets/images/america.png',
+                ),
               ),
+              title: Text('North Ameria'),
+              subtitle: Text('22 países'),
+              trailing: Image.asset('./lib/assets/images/arrow_right.svg'),
+              onTap: () {
+                print('ok');
+              },
             ),
-            title: Text('North Ameria'),
-            subtitle: Text('22 países'),
-            onTap: () {
-              print('ok');
-            },
           ),
-          ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Color(0xFFFBFBFD),
-              child: Image.asset(
-                './lib/assets/images/logo.png',
+          Card(
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Color(0xFFFBFBFD),
+                child: Image.asset(
+                  './lib/assets/images/america.png',
+                ),
               ),
+              title: Text('South America'),
+              subtitle: Text('22 países'),
+              trailing: Image.asset('./lib/assets/images/arrow_right.svg'),
+              onTap: () {
+                print('ok');
+              },
             ),
-            title: Text('South America'),
-            subtitle: Text('22 países'),
-            onTap: () {
-              print('ok');
-            },
           ),
-          ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Color(0xFFFBFBFD),
-              child: Image.asset(
-                './lib/assets/images/logo.png',
+          Card(
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Color(0xFFFBFBFD),
+                child: Image.asset(
+                  './lib/assets/images/europe.png',
+                ),
               ),
+              title: Text('Europe'),
+              subtitle: Text('45 países'),
+              trailing: Image.asset('./lib/assets/images/arrow_right.svg'),
+              onTap: () {
+                print('ok');
+              },
             ),
-            title: Text('Europe'),
-            subtitle: Text('45 países'),
-            onTap: () {
-              print('ok');
-            },
           ),
-          ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Color(0xFFFBFBFD),
-              child: Image.asset(
-                './lib/assets/images/logo.png',
+          Card(
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Color(0xFFFBFBFD),
+                child: Image.asset(
+                  './lib/assets/images/africa.png',
+                ),
               ),
+              title: Text('Africa'),
+              subtitle: Text('22 países'),
+              trailing: Image.asset('./lib/assets/images/arrow_right.svg'),
+              onTap: () {
+                print('ok');
+              },
             ),
-            title: Text('Africa'),
-            subtitle: Text('22 países'),
-            onTap: () {
-              print('ok');
-            },
           ),
-          ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Color(0xFFFBFBFD),
-              child: Image.asset(
-                './lib/assets/images/logo.png',
+          Card(
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Color(0xFFFBFBFD),
+                child: Image.asset(
+                  './lib/assets/images/oceania.png',
+                ),
               ),
+              title: Text('Australia/Oceania'),
+              subtitle: Text('22 países'),
+              trailing: Image.asset('./lib/assets/images/arrow_right.svg'),
+              onTap: () {
+                print('ok');
+              },
             ),
-            title: Text('Australia/Oceania'),
-            subtitle: Text('22 países'),
-            onTap: () {
-              print('ok');
-            },
           ),
         ],
       ),
