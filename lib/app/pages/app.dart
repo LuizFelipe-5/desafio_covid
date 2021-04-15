@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
 
+import 'countries.dart';
+import 'continents.dart';
 import 'home.dart';
 
 class MyApp extends StatelessWidget {
@@ -11,7 +13,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Splash Screen'),
+      //home: MyHomePage(title: 'Splash Screen'),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomeScreen(),
+        '/tabContinents': (context) => TabContinents(),
+        '/listCountries': (context) => ListCountries(),
+      },
     );
   }
 }

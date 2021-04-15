@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TabBarDemo extends StatelessWidget {
+class TabContinents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -8,7 +8,10 @@ class TabBarDemo extends StatelessWidget {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
+            backgroundColor: Color(0xFFFCFCFD),
             bottom: TabBar(
+              unselectedLabelColor: Color(0xFF969AA8),
+              labelColor: Color(0xFF4461C2),
               tabs: [
                 Tab(
                   text: 'Detalhes',
@@ -17,20 +20,120 @@ class TabBarDemo extends StatelessWidget {
                   text: 'Países',
                 ),
               ],
+              indicatorColor: Color(0xFF4461C2),
             ),
-            title: Text('Europe'),
+            title: Text(
+              'Europe',
+              style: TextStyle(
+                color: Color(0xFF1E2243),
+                fontSize: 16,
+              ),
+            ),
+            leading: Icon(
+              Icons.arrow_back_ios,
+              color: Color(0xFF1E2243),
+            ),
           ),
           body: TabBarView(
             children: [
               Container(
+                color: Color(0xFFF3F4F9),
                 child: Column(
                   children: [
-                    Card(),
-                    Card(),
+                    Column(
+                      children: [
+                        Card(
+                          child: Column(
+                            children: [
+                              Text('Total'),
+                              Column(
+                                children: [
+                                  Text('Total de casos'),
+                                  Text('123213'),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text('Ativos'),
+                                      Text('27%'),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text('Curados'),
+                                      Text('27%'),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text('Óbitos'),
+                                      Text('27%'),
+                                    ],
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        Card(
+                          child: Column(
+                            children: [
+                              Text('Hoje'),
+                              Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text('Casos'),
+                                      Text('+12132'),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text('Óbitos'),
+                                      Text('+1111'),
+                                    ],
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                        Card(
+                          child: Column(
+                            children: [
+                              Text('Testes'),
+                              Row(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text('Realizados'),
+                                      Text('12132'),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text('População'),
+                                      Text('1213132131'),
+                                    ],
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
-              ListView()
+              Container(
+                color: Color(0xFFF3F4F9),
+                child: Card(
+                  child: Expanded(child: ListView()),
+                ),
+              ),
             ],
           ),
         ),

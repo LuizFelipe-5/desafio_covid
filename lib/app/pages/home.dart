@@ -41,9 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               title: Text('Asia'),
               subtitle: Text('45 países'),
-              trailing: Image.asset('./lib/assets/images/arrow_right.svg'),
+              trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
-                print('ok');
+                Navigator.pushNamed(context, '/tabContinents');
               },
             ),
           ),
@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               title: Text('North Ameria'),
               subtitle: Text('22 países'),
-              trailing: Image.asset('./lib/assets/images/arrow_right.svg'),
+              trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
                 print('ok');
               },
@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               title: Text('South America'),
               subtitle: Text('22 países'),
-              trailing: Image.asset('./lib/assets/images/arrow_right.svg'),
+              trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
                 print('ok');
               },
@@ -89,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               title: Text('Europe'),
               subtitle: Text('45 países'),
-              trailing: Image.asset('./lib/assets/images/arrow_right.svg'),
+              trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
                 print('ok');
               },
@@ -105,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               title: Text('Africa'),
               subtitle: Text('22 países'),
-              trailing: Image.asset('./lib/assets/images/arrow_right.svg'),
+              trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
                 print('ok');
               },
@@ -121,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               title: Text('Australia/Oceania'),
               subtitle: Text('22 países'),
-              trailing: Image.asset('./lib/assets/images/arrow_right.svg'),
+              trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
                 print('ok');
               },
