@@ -58,6 +58,7 @@ class TabContinents extends StatelessWidget {
                                 ],
                               ),
                               Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Column(
                                     children: [
@@ -87,6 +88,7 @@ class TabContinents extends StatelessWidget {
                             children: [
                               Text('Hoje'),
                               Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Column(
                                     children: [
@@ -110,6 +112,7 @@ class TabContinents extends StatelessWidget {
                             children: [
                               Text('Testes'),
                               Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Column(
                                     children: [
@@ -149,7 +152,7 @@ class TabContinents extends StatelessWidget {
 
     return ListView.builder(
       itemCount: itens.length,
-      itemBuilder: (context, index) {
+      itemBuilder: (_, index) {
         return Card(
           child: ListTile(
             title: Text('${itens[index]}'),
