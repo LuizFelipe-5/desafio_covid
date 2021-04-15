@@ -29,9 +29,14 @@ class TabContinents extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            leading: Icon(
-              Icons.arrow_back_ios,
-              color: Color(0xFF1E2243),
+            leading: GestureDetector(
+              onTap: () {
+                Navigator.popUntil(context, (route) => route.isFirst);
+              },
+              child: Icon(
+                Icons.arrow_back_ios,
+                color: Color(0xFF1E2243),
+              ),
             ),
           ),
           body: TabBarView(
@@ -130,14 +135,31 @@ class TabContinents extends StatelessWidget {
               ),
               Container(
                 color: Color(0xFFF3F4F9),
-                child: Card(
-                  child: Expanded(child: ListView()),
-                ),
+                child: buildListView(context),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  buildListView(BuildContext context) {
+    final itens = List<String>.generate(10000, (index) => 'Item count: $index');
+
+    return ListView.builder(
+      itemCount: itens.length,
+      itemBuilder: (context, index) {
+        return Card(
+          child: ListTile(
+            title: Text('${itens[index]}'),
+            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: () {
+              Navigator.pushNamed(context, '/countryDetails');
+            },
+          ),
+        );
+      },
     );
   }
 }

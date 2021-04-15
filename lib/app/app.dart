@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
 
-import 'countries.dart';
-import 'continents.dart';
-import 'home.dart';
+import 'pages/country_details.dart';
+import 'pages/continents.dart';
+import 'pages/home.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => HomeScreen(),
         '/tabContinents': (context) => TabContinents(),
-        '/listCountries': (context) => ListCountries(),
+        '/countryDetails': (context) => CountryDetails(),
       },
     );
   }
@@ -44,7 +44,7 @@ Widget _splashScreen() {
   return Stack(
     children: [
       SplashScreen(
-        seconds: 1,
+        seconds: 4,
         backgroundColor: Colors.white,
         navigateAfterSeconds: HomeScreen(),
         loaderColor: Colors.transparent,
