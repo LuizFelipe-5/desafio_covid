@@ -1,3 +1,4 @@
+import 'package:desafio_covid/controllers/continents_controller.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -6,6 +7,80 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final controller = ContinentController();
+
+  _success() {
+    ListView.builder(
+        itemCount: controller.continents.length,
+        itemBuilder: (context, index) {
+          var continent = controller.continents[index];
+          return Card(
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Color(0xFFFBFBFD),
+                child: Image.asset(
+                  './lib/assets/images/asia.png',
+                ),
+              ),
+              title: Text('titulo'),
+              subtitle: Text('sub'),
+              // title: Text(continent.continent),
+              // subtitle: Text(continent.countries.length.toString()),
+              trailing: Icon(Icons.arrow_forward_ios),
+              onTap: () {
+                Navigator.pushNamed(context, '/tabContinents');
+              },
+            ),
+          );
+        });
+  }
+
+  _error() {
+    return Center(
+      child: ElevatedButton(
+        onPressed: () {
+          controller.start();
+        },
+        child: Text('Tentar'),
+      ),
+    );
+  }
+
+  _loading() {
+    return Center(
+      child: CircularProgressIndicator(),
+    );
+  }
+
+  _start() {
+    return Container(
+      width: 0.0,
+      height: 0.0,
+    );
+  }
+
+  stateManagement(ContinentState state) {
+    switch (state) {
+      case ContinentState.start:
+        return _start();
+      case ContinentState.loading:
+        return _loading();
+      case ContinentState.error:
+        return _error();
+      case ContinentState.success:
+        return _success();
+      default:
+        return _start();
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    controller.start();
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -35,105 +110,12 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Color(0xFFFBFBFD),
         ),
         backgroundColor: Color(0xFFF3F4F9),
-        body: ListView(
-          children: [
-            Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Color(0xFFFBFBFD),
-                  child: Image.asset(
-                    './lib/assets/images/asia.png',
-                  ),
-                ),
-                title: Text('Asia'),
-                subtitle: Text('45 países'),
-                trailing: Icon(Icons.arrow_forward_ios),
-                onTap: () {
-                  Navigator.pushNamed(context, '/tabContinents');
-                },
-              ),
-            ),
-            Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Color(0xFFFBFBFD),
-                  child: Image.asset(
-                    './lib/assets/images/america.png',
-                  ),
-                ),
-                title: Text('North Ameria'),
-                subtitle: Text('22 países'),
-                trailing: Icon(Icons.arrow_forward_ios),
-                onTap: () {
-                  print('ok');
-                },
-              ),
-            ),
-            Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Color(0xFFFBFBFD),
-                  child: Image.asset(
-                    './lib/assets/images/america.png',
-                  ),
-                ),
-                title: Text('South America'),
-                subtitle: Text('22 países'),
-                trailing: Icon(Icons.arrow_forward_ios),
-                onTap: () {
-                  print('ok');
-                },
-              ),
-            ),
-            Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Color(0xFFFBFBFD),
-                  child: Image.asset(
-                    './lib/assets/images/europe.png',
-                  ),
-                ),
-                title: Text('Europe'),
-                subtitle: Text('45 países'),
-                trailing: Icon(Icons.arrow_forward_ios),
-                onTap: () {
-                  print('ok');
-                },
-              ),
-            ),
-            Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Color(0xFFFBFBFD),
-                  child: Image.asset(
-                    './lib/assets/images/africa.png',
-                  ),
-                ),
-                title: Text('Africa'),
-                subtitle: Text('22 países'),
-                trailing: Icon(Icons.arrow_forward_ios),
-                onTap: () {
-                  print('ok');
-                },
-              ),
-            ),
-            Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: Color(0xFFFBFBFD),
-                  child: Image.asset(
-                    './lib/assets/images/oceania.png',
-                  ),
-                ),
-                title: Text('Australia/Oceania'),
-                subtitle: Text('22 países'),
-                trailing: Icon(Icons.arrow_forward_ios),
-                onTap: () {
-                  print('ok');
-                },
-              ),
-            ),
-          ],
+        body: AnimatedBuilder(
+          animation: controller.state,
+          builder: (context, child) {
+            debugPrint(controller.continents.length.toString());
+            return stateManagement(controller.state.value);
+          },
         ),
       ),
     );
