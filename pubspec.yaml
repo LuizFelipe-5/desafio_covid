@@ -54,6 +54,7 @@ flutter:
     - ./lib/assets/images/africa.png
     - ./lib/assets/images/oceania.png
     - ./lib/assets/images/europe.png
+    - ./lib/assets/images/france.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 import 'pages/country_details.dart';
-import 'pages/continents.dart';
+import 'pages/tabDetails.dart';
 import 'pages/home.dart';
 
 class MyApp extends StatelessWidget {
@@ -13,10 +13,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      //home: MyHomePage(title: 'Splash Screen'),
       initialRoute: '/',
       routes: {
-        '/': (context) => HomeScreen(),
+        '/': (context) => MyHomePage(),
         '/tabContinents': (context) => TabContinents(),
         '/countryDetails': (context) => CountryDetails(),
       },
@@ -44,7 +43,7 @@ Widget _splashScreen() {
   return Stack(
     children: [
       SplashScreen(
-        seconds: 4,
+        seconds: 3,
         backgroundColor: Colors.white,
         navigateAfterSeconds: HomeScreen(),
         loaderColor: Colors.transparent,
