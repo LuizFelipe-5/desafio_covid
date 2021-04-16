@@ -29,7 +29,7 @@ class CountryDetails extends StatelessWidget {
         color: Color(0xFFF3F4F9),
         child: Column(
           children: [
-            Image.asset('./lib/assets/images/france.png'),
+            Image.asset('assets/images/france.png'),
             Padding(
               padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
               child: Card(

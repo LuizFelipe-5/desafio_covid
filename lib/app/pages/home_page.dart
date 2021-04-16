@@ -1,4 +1,5 @@
-import 'package:desafio_covid/controllers/continents_controller.dart';
+import 'package:desafio_covid/app/controllers/continents_controller.dart';
+
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -9,23 +10,44 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final controller = ContinentController();
 
-  _success() {
-    ListView.builder(
+  _success(BuildContext context) {
+    return ListView.builder(
         itemCount: controller.continents.length,
-        itemBuilder: (context, index) {
+        itemBuilder: (_, index) {
           var continent = controller.continents[index];
+          var countryIcon = '';
+          switch (continent.continent) {
+            case 'Asia':
+              countryIcon = 'asia';
+              break;
+            case 'North America':
+              countryIcon = 'america';
+              break;
+            case 'South America':
+              countryIcon = 'america';
+              break;
+            case 'Africa':
+              countryIcon = 'africa';
+              break;
+            case 'Europe':
+              countryIcon = 'europe';
+              break;
+            case 'Australia/Oceania':
+              countryIcon = 'oceania';
+              break;
+            default:
+              break;
+          }
           return Card(
             child: ListTile(
               leading: CircleAvatar(
                 backgroundColor: Color(0xFFFBFBFD),
                 child: Image.asset(
-                  './lib/assets/images/asia.png',
+                  'assets/images/$countryIcon.png',
                 ),
               ),
-              title: Text('titulo'),
-              subtitle: Text('sub'),
-              // title: Text(continent.continent),
-              // subtitle: Text(continent.countries.length.toString()),
+              title: Text(continent.continent),
+              subtitle: Text('${continent.countries.length} países'),
               trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
                 Navigator.pushNamed(context, '/tabContinents');
@@ -68,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
       case ContinentState.error:
         return _error();
       case ContinentState.success:
-        return _success();
+        return _success(context);
       default:
         return _start();
     }
@@ -102,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
           leading: CircleAvatar(
             backgroundColor: Color(0xFFFBFBFD),
             child: Image.asset(
-              './lib/assets/images/logo.png',
+              'assets/images/logo.png',
               height: 29,
               width: 30,
             ),
@@ -113,7 +135,6 @@ class _HomeScreenState extends State<HomeScreen> {
         body: AnimatedBuilder(
           animation: controller.state,
           builder: (context, child) {
-            debugPrint(controller.continents.length.toString());
             return stateManagement(controller.state.value);
           },
         ),

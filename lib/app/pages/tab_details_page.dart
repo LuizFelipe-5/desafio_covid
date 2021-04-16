@@ -1,7 +1,8 @@
+import 'package:desafio_covid/app/shared/theme.dart';
 import 'package:flutter/material.dart';
 
 class TabContinents extends StatelessWidget {
-  final gray = Color(0xFF969AA8);
+  //final gray = Color(0xFF969AA8);
 
   @override
   Widget build(BuildContext context) {
@@ -52,67 +53,72 @@ class TabContinents extends StatelessWidget {
                       child: Column(
                         children: [
                           Card(
-                            child: Column(
-                              children: [
-                                Text('Total'),
-                                Column(
-                                  children: [
-                                    Text(
-                                      'Total de casos',
-                                      style: TextStyle(color: gray),
-                                    ),
-                                    Text('123213'),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Column(
-                                      children: [
-                                        Text(
-                                          'Ativos',
-                                          style: TextStyle(color: gray),
-                                        ),
-                                        Text(
-                                          '27%',
-                                          style: TextStyle(
-                                            color: Color(0xFF4461C2),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              child: Column(
+                                children: [
+                                  Text('Total'),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        'Total de casos',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headline6,
+                                      ),
+                                      Text('123213'),
+                                    ],
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Text(
+                                            'Ativos',
+                                            style: TextStyle(color: gray),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        Text(
-                                          'Curados',
-                                          style: TextStyle(color: gray),
-                                        ),
-                                        Text(
-                                          '27%',
-                                          style: TextStyle(
-                                            color: Color(0xFF5FD92B),
+                                          Text(
+                                            '27%',
+                                            style: TextStyle(
+                                              color: Color(0xFF4461C2),
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        Text(
-                                          'Óbitos',
-                                          style: TextStyle(color: gray),
-                                        ),
-                                        Text(
-                                          '27%',
-                                          style: TextStyle(
-                                            color: Color(0xFFFF2665),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          Text(
+                                            'Curados',
+                                            style: TextStyle(color: gray),
                                           ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
+                                          Text(
+                                            '27%',
+                                            style: TextStyle(
+                                              color: Color(0xFF5FD92B),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          Text(
+                                            'Óbitos',
+                                            style: TextStyle(color: gray),
+                                          ),
+                                          Text(
+                                            '27%',
+                                            style: TextStyle(
+                                              color: Color(0xFFFF2665),
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                           Card(

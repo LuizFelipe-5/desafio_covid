@@ -1,4 +1,4 @@
-import 'package:desafio_covid/models/continents.dart';
+import 'package:desafio_covid/app/models/continents.dart';
 import 'package:dio/dio.dart';
 
 class ContinentRepository {

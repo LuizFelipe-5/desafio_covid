@@ -1,5 +1,6 @@
-import 'package:desafio_covid/models/continents.dart';
-import 'package:desafio_covid/repositories/teste.dart';
+import 'package:desafio_covid/app/models/continents.dart';
+import 'package:desafio_covid/app/repositories/teste.dart';
+
 import 'package:flutter/material.dart';
 
 class ContinentController {

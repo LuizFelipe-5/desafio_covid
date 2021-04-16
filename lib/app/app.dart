@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
 
-import 'pages/country_details.dart';
-import 'pages/tabDetails.dart';
-import 'pages/home.dart';
+import 'pages/country_details_page.dart';
+import 'pages/tab_details_page.dart';
+import 'pages/home_page.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -12,6 +12,9 @@ class MyApp extends StatelessWidget {
       title: 'Splash Screen',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        textTheme: TextTheme(
+          headline6: TextStyle(color: Colors.pink, fontSize: 16),
+        ),
       ),
       initialRoute: '/',
       routes: {
@@ -51,7 +54,7 @@ Widget _splashScreen() {
       Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("./lib/assets/images/logo.png"),
+            image: AssetImage("assets/images/logo.png"),
             fit: BoxFit.none,
           ),
         ),

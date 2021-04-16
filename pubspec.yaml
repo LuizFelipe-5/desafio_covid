@@ -49,14 +49,14 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - ./lib/assets/images/logo.png
-    - ./lib/assets/images/appbar_icon.png
-    - ./lib/assets/images/asia.png
-    - ./lib/assets/images/america.png
-    - ./lib/assets/images/africa.png
-    - ./lib/assets/images/oceania.png
-    - ./lib/assets/images/europe.png
-    - ./lib/assets/images/france.png
+    - assets/images/logo.png
+    - assets/images/appbar_icon.png
+    - assets/images/asia.png
+    - assets/images/america.png
+    - assets/images/africa.png
+    - assets/images/oceania.png
+    - assets/images/europe.png
+    - assets/images/france.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
