@@ -1,11 +1,20 @@
 import 'package:desafio_covid/app/shared/theme.dart';
 import 'package:flutter/material.dart';
 
-class TabContinents extends StatelessWidget {
+class TabContinents extends StatefulWidget {
   //final gray = Color(0xFF969AA8);
 
   @override
+  _TabContinentsState createState() => _TabContinentsState();
+}
+
+class _TabContinentsState extends State<TabContinents> {
+  @override
   Widget build(BuildContext context) {
+    final String args =
+        ModalRoute.of(context).settings.arguments.toString() ?? 'Continente';
+    String novaArgs = args.substring(1, (args.length - 1));
+
     return MaterialApp(
       home: DefaultTabController(
         length: 2,
@@ -26,7 +35,7 @@ class TabContinents extends StatelessWidget {
               indicatorColor: Color(0xFF4461C2),
             ),
             title: Text(
-              'Europe',
+              novaArgs,
               style: TextStyle(
                 color: Color(0xFF1E2243),
                 fontSize: 16,

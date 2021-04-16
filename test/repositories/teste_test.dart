@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:desafio_covid/repositories/teste.dart';
+import 'package:desafio_covid/app/repositories/continent_repository.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';

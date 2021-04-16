@@ -50,7 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
               subtitle: Text('${continent.countries.length} países'),
               trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
-                Navigator.pushNamed(context, '/tabContinents');
+                Navigator.pushNamed(context, '/tabContinents', arguments: {
+                  continent.continent,
+                });
               },
             ),
           );
