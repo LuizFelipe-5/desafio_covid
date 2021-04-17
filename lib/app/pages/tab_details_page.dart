@@ -1,6 +1,8 @@
 import 'package:desafio_covid/app/shared/theme.dart';
 import 'package:flutter/material.dart';
 
+import 'home_data.dart';
+
 class TabContinents extends StatefulWidget {
   //final gray = Color(0xFF969AA8);
 
@@ -11,9 +13,7 @@ class TabContinents extends StatefulWidget {
 class _TabContinentsState extends State<TabContinents> {
   @override
   Widget build(BuildContext context) {
-    final String args =
-        ModalRoute.of(context).settings.arguments.toString() ?? 'Continente';
-    String novaArgs = args.substring(1, (args.length - 1));
+    final HomeData args = ModalRoute.of(context).settings.arguments as HomeData;
 
     return MaterialApp(
       home: DefaultTabController(
@@ -35,7 +35,7 @@ class _TabContinentsState extends State<TabContinents> {
               indicatorColor: Color(0xFF4461C2),
             ),
             title: Text(
-              novaArgs,
+              args.continent,
               style: TextStyle(
                 color: Color(0xFF1E2243),
                 fontSize: 16,
@@ -75,7 +75,7 @@ class _TabContinentsState extends State<TabContinents> {
                                             .textTheme
                                             .headline6,
                                       ),
-                                      Text('123213'),
+                                      Text(args.cases.toString()),
                                     ],
                                   ),
                                   Row(
@@ -89,7 +89,10 @@ class _TabContinentsState extends State<TabContinents> {
                                             style: TextStyle(color: gray),
                                           ),
                                           Text(
-                                            '27%',
+                                            ((args.active * 100) / args.cases)
+                                                    .floor()
+                                                    .toString() +
+                                                '%',
                                             style: TextStyle(
                                               color: Color(0xFF4461C2),
                                             ),
@@ -103,7 +106,11 @@ class _TabContinentsState extends State<TabContinents> {
                                             style: TextStyle(color: gray),
                                           ),
                                           Text(
-                                            '27%',
+                                            ((args.recovered * 100) /
+                                                        args.cases)
+                                                    .floor()
+                                                    .toString() +
+                                                '%',
                                             style: TextStyle(
                                               color: Color(0xFF5FD92B),
                                             ),
@@ -117,7 +124,10 @@ class _TabContinentsState extends State<TabContinents> {
                                             style: TextStyle(color: gray),
                                           ),
                                           Text(
-                                            '27%',
+                                            ((args.deaths * 100) / args.cases)
+                                                    .floor()
+                                                    .toString() +
+                                                '%',
                                             style: TextStyle(
                                               color: Color(0xFFFF2665),
                                             ),
@@ -131,72 +141,79 @@ class _TabContinentsState extends State<TabContinents> {
                             ),
                           ),
                           Card(
-                            child: Column(
-                              children: [
-                                Text('Hoje'),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Column(
-                                      children: [
-                                        Text(
-                                          'Casos',
-                                          style: TextStyle(color: gray),
-                                        ),
-                                        Text(
-                                          '+ 12132',
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        Text(
-                                          'Óbitos',
-                                          style: TextStyle(color: gray),
-                                        ),
-                                        Text(
-                                          '+ 1111',
-                                          style: TextStyle(
-                                            color: Color(0xFFFF2665),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              child: Column(
+                                children: [
+                                  Text('Hoje'),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Text(
+                                            'Casos',
+                                            style: TextStyle(color: gray),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                )
-                              ],
+                                          Text(
+                                            '+ ' + args.todayCases.toString(),
+                                          ),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          Text(
+                                            'Óbitos',
+                                            style: TextStyle(color: gray),
+                                          ),
+                                          Text(
+                                            '+ ' + args.todayDeaths.toString(),
+                                            style: TextStyle(
+                                              color: Color(0xFFFF2665),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                           Card(
-                            child: Column(
-                              children: [
-                                Text('Testes'),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Column(
-                                      children: [
-                                        Text(
-                                          'Realizados',
-                                          style: TextStyle(color: gray),
-                                        ),
-                                        Text('12132'),
-                                      ],
-                                    ),
-                                    Column(
-                                      children: [
-                                        Text(
-                                          'População',
-                                          style: TextStyle(color: gray),
-                                        ),
-                                        Text('1213132131'),
-                                      ],
-                                    ),
-                                  ],
-                                )
-                              ],
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 20.0),
+                              child: Column(
+                                children: [
+                                  Text('Testes'),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Column(
+                                        children: [
+                                          Text(
+                                            'Realizados',
+                                            style: TextStyle(color: gray),
+                                          ),
+                                          Text(args.tests.toString()),
+                                        ],
+                                      ),
+                                      Column(
+                                        children: [
+                                          Text(
+                                            'População',
+                                            style: TextStyle(color: gray),
+                                          ),
+                                          Text(args.population.toString()),
+                                        ],
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -207,7 +224,7 @@ class _TabContinentsState extends State<TabContinents> {
               ),
               Container(
                 color: Color(0xFFF3F4F9),
-                child: buildListView(context),
+                child: buildListView(context, args),
               ),
             ],
           ),
@@ -216,15 +233,13 @@ class _TabContinentsState extends State<TabContinents> {
     );
   }
 
-  Widget buildListView(BuildContext context) {
-    final itens = List<String>.generate(10000, (index) => 'Item count: $index');
-
+  Widget buildListView(BuildContext context, HomeData args) {
     return ListView.builder(
-      itemCount: itens.length,
+      itemCount: args.countries.length,
       itemBuilder: (_, index) {
         return Card(
           child: ListTile(
-            title: Text('${itens[index]}'),
+            title: Text('${args.countries[index]}'),
             trailing: Icon(Icons.arrow_forward_ios),
             onTap: () {
               Navigator.pushNamed(context, '/countryDetails');

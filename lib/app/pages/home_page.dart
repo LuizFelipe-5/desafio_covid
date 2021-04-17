@@ -2,6 +2,8 @@ import 'package:desafio_covid/app/controllers/continents_controller.dart';
 
 import 'package:flutter/material.dart';
 
+import 'home_data.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -50,9 +52,18 @@ class _HomeScreenState extends State<HomeScreen> {
               subtitle: Text('${continent.countries.length} países'),
               trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
-                Navigator.pushNamed(context, '/tabContinents', arguments: {
-                  continent.continent,
-                });
+                Navigator.pushNamed(context, '/tabContinents',
+                    arguments: HomeData(
+                        continent.continent,
+                        continent.cases,
+                        continent.active,
+                        continent.deaths,
+                        continent.population,
+                        continent.recovered,
+                        continent.todayCases,
+                        continent.todayDeaths,
+                        continent.tests,
+                        continent.countries));
               },
             ),
           );

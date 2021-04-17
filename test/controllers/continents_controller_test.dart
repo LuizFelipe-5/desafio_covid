@@ -1,6 +1,6 @@
-import 'package:desafio_covid/controllers/continents_controller.dart';
-import 'package:desafio_covid/models/continents.dart';
-import 'package:desafio_covid/repositories/teste.dart';
+import 'package:desafio_covid/app/controllers/continents_controller.dart';
+import 'package:desafio_covid/app/models/continents.dart';
+import 'package:desafio_covid/app/repositories/continent_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
