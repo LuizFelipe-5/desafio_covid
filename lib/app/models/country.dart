@@ -5,7 +5,6 @@ class Country {
   int deaths;
   int recovered;
   int active;
-  int population;
   String continent;
 
   Country(
@@ -15,7 +14,6 @@ class Country {
       this.deaths,
       this.recovered,
       this.active,
-      this.population,
       this.continent});
 
   Country.fromJson(Map<String, dynamic> json) {
@@ -27,7 +25,6 @@ class Country {
     deaths = json['deaths'];
     recovered = json['recovered'];
     active = json['active'];
-    population = json['population'];
     continent = json['continent'];
   }
 
@@ -41,7 +38,6 @@ class Country {
     data['deaths'] = this.deaths;
     data['recovered'] = this.recovered;
     data['active'] = this.active;
-    data['population'] = this.population;
     data['continent'] = this.continent;
     return data;
   }

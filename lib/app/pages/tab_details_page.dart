@@ -242,7 +242,8 @@ class _TabContinentsState extends State<TabContinents> {
             title: Text('${args.countries[index]}'),
             trailing: Icon(Icons.arrow_forward_ios),
             onTap: () {
-              Navigator.pushNamed(context, '/countryDetails');
+              Navigator.pushNamed(context, '/countryDetails',
+                  arguments: args.countries[index]);
             },
           ),
         );

@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 
-class CountryDetails extends StatelessWidget {
+class CountryDetails extends StatefulWidget {
+  @override
+  _CountryDetailsState createState() => _CountryDetailsState();
+}
+
+class _CountryDetailsState extends State<CountryDetails> {
   final gray = Color(0xFF969AA8);
 
   @override
   Widget build(BuildContext context) {
+    final String args = ModalRoute.of(context).settings.arguments ?? 'País';
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFFCFCFD),
@@ -18,7 +25,7 @@ class CountryDetails extends StatelessWidget {
           },
         ),
         title: Text(
-          'France',
+          args,
           style: TextStyle(
             color: Color(0xFF1E2243),
             fontSize: 16,
