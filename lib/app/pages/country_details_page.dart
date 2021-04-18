@@ -1,3 +1,4 @@
+import 'package:desafio_covid/app/controllers/countries_controller.dart';
 import 'package:flutter/material.dart';
 
 class CountryDetails extends StatefulWidget {
@@ -6,12 +7,22 @@ class CountryDetails extends StatefulWidget {
 }
 
 class _CountryDetailsState extends State<CountryDetails> {
+  final controller = CountryController();
+
   final gray = Color(0xFF969AA8);
 
   @override
-  Widget build(BuildContext context) {
-    final String args = ModalRoute.of(context).settings.arguments ?? 'País';
+  void initState() {
+    super.initState();
 
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      final String args = ModalRoute.of(context).settings.arguments ?? 'País';
+      controller.start(args);
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFFCFCFD),
@@ -25,7 +36,7 @@ class _CountryDetailsState extends State<CountryDetails> {
           },
         ),
         title: Text(
-          args,
+          ModalRoute.of(context).settings.arguments ?? 'País',
           style: TextStyle(
             color: Color(0xFF1E2243),
             fontSize: 16,
@@ -34,86 +45,115 @@ class _CountryDetailsState extends State<CountryDetails> {
       ),
       body: Container(
         color: Color(0xFFF3F4F9),
-        child: Column(
-          children: [
-            Image.asset('assets/images/france.png'),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-              child: Card(
-                child: Column(
-                  children: [
-                    Text('France'),
-                    Column(
-                      children: [
-                        Text(
-                          'Total de casos',
-                          style: TextStyle(
-                            color: gray,
-                          ),
+        child: ValueListenableBuilder<CountryState>(
+            valueListenable: controller.state,
+            builder: (context, state, widget) {
+              if (state == CountryState.start ||
+                  state == CountryState.loading) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              if (state == CountryState.error) {
+                return Center(
+                  child: Text('erro'),
+                );
+              }
+              return Stack(
+                alignment: Alignment.topCenter,
+                children: [
+                  Positioned(
+                    top: 73,
+                    left: 16,
+                    right: 16,
+                    child: Card(
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 16, right: 16, top: 122),
+                        child: Column(
+                          children: [
+                            Text(controller.countries.country),
+                            Column(
+                              children: [
+                                Text(
+                                  'Total de casos',
+                                  style: TextStyle(
+                                    color: gray,
+                                  ),
+                                ),
+                                Text(
+                                  '1231321',
+                                ),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Column(
+                                  children: [
+                                    Text(
+                                      'Ativos',
+                                      style: TextStyle(
+                                        color: gray,
+                                      ),
+                                    ),
+                                    Text(
+                                      '27%',
+                                      style:
+                                          TextStyle(color: Color(0xFF4461C2)),
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text(
+                                      'Curados',
+                                      style: TextStyle(
+                                        color: gray,
+                                      ),
+                                    ),
+                                    Text(
+                                      '27%',
+                                      style: TextStyle(
+                                        color: Color(0xFF5FD92B),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  children: [
+                                    Text(
+                                      'Óbitos',
+                                      style: TextStyle(
+                                        color: gray,
+                                      ),
+                                    ),
+                                    Text(
+                                      '27%',
+                                      style: TextStyle(
+                                        color: Color(0xFFFF2665),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            )
+                          ],
                         ),
-                        Text(
-                          '1231321',
-                        ),
-                      ],
+                      ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Column(
-                          children: [
-                            Text(
-                              'Ativos',
-                              style: TextStyle(
-                                color: gray,
-                              ),
-                            ),
-                            Text(
-                              '27%',
-                              style: TextStyle(color: Color(0xFF4461C2)),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                              'Curados',
-                              style: TextStyle(
-                                color: gray,
-                              ),
-                            ),
-                            Text(
-                              '27%',
-                              style: TextStyle(
-                                color: Color(0xFF5FD92B),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                              'Óbitos',
-                              style: TextStyle(
-                                color: gray,
-                              ),
-                            ),
-                            Text(
-                              '27%',
-                              style: TextStyle(
-                                color: Color(0xFFFF2665),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ),
-            ),
-            Card(),
-          ],
-        ),
+                  ),
+                  Positioned(
+                    top: 30,
+                    child: Center(
+                      child: Image.asset(
+                        'assets/images/france.png',
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            }),
       ),
     );
   }
