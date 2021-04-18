@@ -10,11 +10,11 @@ class DioMock extends Mock implements Dio {}
 main() {
   final dio = DioMock();
   final repository = CountryRepository(dio);
-  test('deve trazer uma lista de países', () async {
+  test('deve trazer um país', () async {
     when(dio.get(any))
         .thenAnswer((_) async => Response(data: jsonDecode(jsonData)));
-    final list = await repository.fetchCountries();
-    print(list[0].country);
+    final country = await repository.fetchCountries(jsonData);
+    print(country.country);
   });
 }
 

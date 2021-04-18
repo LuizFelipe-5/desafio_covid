@@ -72,7 +72,13 @@ class _CountryDetailsState extends State<CountryDetails> {
                             left: 16, right: 16, top: 122),
                         child: Column(
                           children: [
-                            Text(controller.countries.country),
+                            Text(
+                              controller.countries.country,
+                              style: TextStyle(fontSize: 20),
+                            ),
+                            const SizedBox(
+                              height: 48.0,
+                            ),
                             Column(
                               children: [
                                 Text(
@@ -82,9 +88,12 @@ class _CountryDetailsState extends State<CountryDetails> {
                                   ),
                                 ),
                                 Text(
-                                  '1231321',
+                                  controller.countries.cases.toString(),
                                 ),
                               ],
+                            ),
+                            const SizedBox(
+                              height: 37.0,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -98,7 +107,11 @@ class _CountryDetailsState extends State<CountryDetails> {
                                       ),
                                     ),
                                     Text(
-                                      '27%',
+                                      (controller.countries.active *
+                                                  100 /
+                                                  controller.countries.cases)
+                                              .toStringAsFixed(0) +
+                                          '%',
                                       style:
                                           TextStyle(color: Color(0xFF4461C2)),
                                     ),
@@ -113,7 +126,11 @@ class _CountryDetailsState extends State<CountryDetails> {
                                       ),
                                     ),
                                     Text(
-                                      '27%',
+                                      (controller.countries.recovered *
+                                                  100 /
+                                                  controller.countries.cases)
+                                              .toStringAsFixed(0) +
+                                          '%',
                                       style: TextStyle(
                                         color: Color(0xFF5FD92B),
                                       ),
@@ -129,7 +146,11 @@ class _CountryDetailsState extends State<CountryDetails> {
                                       ),
                                     ),
                                     Text(
-                                      '27%',
+                                      (controller.countries.deaths *
+                                                  100 /
+                                                  controller.countries.cases)
+                                              .toStringAsFixed(0) +
+                                          '%',
                                       style: TextStyle(
                                         color: Color(0xFFFF2665),
                                       ),
@@ -137,7 +158,10 @@ class _CountryDetailsState extends State<CountryDetails> {
                                   ],
                                 ),
                               ],
-                            )
+                            ),
+                            const SizedBox(
+                              height: 58.0,
+                            ),
                           ],
                         ),
                       ),

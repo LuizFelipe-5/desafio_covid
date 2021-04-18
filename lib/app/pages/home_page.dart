@@ -13,61 +13,64 @@ class _HomeScreenState extends State<HomeScreen> {
   final controller = ContinentController();
 
   _success(BuildContext context) {
-    return ListView.builder(
-        itemCount: controller.continents.length,
-        itemBuilder: (_, index) {
-          var continent = controller.continents[index];
-          var countryIcon = '';
-          switch (continent.continent) {
-            case 'Asia':
-              countryIcon = 'asia';
-              break;
-            case 'North America':
-              countryIcon = 'america';
-              break;
-            case 'South America':
-              countryIcon = 'america';
-              break;
-            case 'Africa':
-              countryIcon = 'africa';
-              break;
-            case 'Europe':
-              countryIcon = 'europe';
-              break;
-            case 'Australia/Oceania':
-              countryIcon = 'oceania';
-              break;
-            default:
-              break;
-          }
-          return Card(
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundColor: Color(0xFFFBFBFD),
-                child: Image.asset(
-                  'assets/images/$countryIcon.png',
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20.5, horizontal: 14.5),
+      child: ListView.builder(
+          itemCount: controller.continents.length,
+          itemBuilder: (_, index) {
+            var continent = controller.continents[index];
+            var countryIcon = '';
+            switch (continent.continent) {
+              case 'Asia':
+                countryIcon = 'asia';
+                break;
+              case 'North America':
+                countryIcon = 'america';
+                break;
+              case 'South America':
+                countryIcon = 'america';
+                break;
+              case 'Africa':
+                countryIcon = 'africa';
+                break;
+              case 'Europe':
+                countryIcon = 'europe';
+                break;
+              case 'Australia/Oceania':
+                countryIcon = 'oceania';
+                break;
+              default:
+                break;
+            }
+            return Card(
+              child: ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: Color(0xFFFBFBFD),
+                  child: Image.asset(
+                    'assets/images/$countryIcon.png',
+                  ),
                 ),
+                title: Text(continent.continent),
+                subtitle: Text('${continent.countries.length} países'),
+                trailing: Icon(Icons.arrow_forward_ios),
+                onTap: () {
+                  Navigator.pushNamed(context, '/tabContinents',
+                      arguments: HomeData(
+                          continent.continent,
+                          continent.cases,
+                          continent.active,
+                          continent.deaths,
+                          continent.population,
+                          continent.recovered,
+                          continent.todayCases,
+                          continent.todayDeaths,
+                          continent.tests,
+                          continent.countries));
+                },
               ),
-              title: Text(continent.continent),
-              subtitle: Text('${continent.countries.length} países'),
-              trailing: Icon(Icons.arrow_forward_ios),
-              onTap: () {
-                Navigator.pushNamed(context, '/tabContinents',
-                    arguments: HomeData(
-                        continent.continent,
-                        continent.cases,
-                        continent.active,
-                        continent.deaths,
-                        continent.population,
-                        continent.recovered,
-                        continent.todayCases,
-                        continent.todayDeaths,
-                        continent.tests,
-                        continent.countries));
-              },
-            ),
-          );
-        });
+            );
+          }),
+    );
   }
 
   _error() {
