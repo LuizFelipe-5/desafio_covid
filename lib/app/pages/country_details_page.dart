@@ -89,6 +89,7 @@ class _CountryDetailsState extends State<CountryDetails> {
                                 spacing5,
                                 Text(
                                   controller.countries.cases.toString(),
+                                  style: text16Black,
                                 ),
                               ],
                             ),
@@ -112,7 +113,7 @@ class _CountryDetailsState extends State<CountryDetails> {
                                                   controller.countries.cases)
                                               .toStringAsFixed(0) +
                                           '%',
-                                      style: textBlue,
+                                      style: text22Blue,
                                     ),
                                   ],
                                 ),
@@ -130,7 +131,7 @@ class _CountryDetailsState extends State<CountryDetails> {
                                                   controller.countries.cases)
                                               .toStringAsFixed(0) +
                                           '%',
-                                      style: textGreen,
+                                      style: text22Green,
                                     ),
                                   ],
                                 ),
@@ -148,7 +149,7 @@ class _CountryDetailsState extends State<CountryDetails> {
                                                   controller.countries.cases)
                                               .toStringAsFixed(0) +
                                           '%',
-                                      style: textRed,
+                                      style: text22Red,
                                     ),
                                   ],
                                 ),

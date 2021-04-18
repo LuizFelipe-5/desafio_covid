@@ -100,7 +100,7 @@ class _TabContinentsState extends State<TabContinents> {
                                             ((args.active * 100) / args.cases)
                                                     .toStringAsFixed(0) +
                                                 '%',
-                                            style: textBlue,
+                                            style: text22Blue,
                                           ),
                                         ],
                                       ),
@@ -118,7 +118,7 @@ class _TabContinentsState extends State<TabContinents> {
                                                         args.cases)
                                                     .toStringAsFixed(0) +
                                                 '%',
-                                            style: textGreen,
+                                            style: text22Green,
                                           ),
                                         ],
                                       ),
@@ -135,7 +135,7 @@ class _TabContinentsState extends State<TabContinents> {
                                             ((args.deaths * 100) / args.cases)
                                                     .toStringAsFixed(0) +
                                                 '%',
-                                            style: textRed,
+                                            style: text22Red,
                                           ),
                                         ],
                                       )
@@ -171,6 +171,7 @@ class _TabContinentsState extends State<TabContinents> {
                                           spacing5,
                                           Text(
                                             '+ ' + args.todayCases.toString(),
+                                            style: text16Black,
                                           ),
                                         ],
                                       ),
@@ -185,9 +186,7 @@ class _TabContinentsState extends State<TabContinents> {
                                           spacing5,
                                           Text(
                                             '+ ' + args.todayDeaths.toString(),
-                                            style: TextStyle(
-                                              color: Color(0xFFFF2665),
-                                            ),
+                                            style: text16Red,
                                           ),
                                         ],
                                       ),
@@ -222,7 +221,10 @@ class _TabContinentsState extends State<TabContinents> {
                                                 .bodyText1,
                                           ),
                                           spacing5,
-                                          Text(args.tests.toString()),
+                                          Text(
+                                            args.tests.toString(),
+                                            style: text16Black,
+                                          ),
                                         ],
                                       ),
                                       Column(
@@ -234,7 +236,10 @@ class _TabContinentsState extends State<TabContinents> {
                                                 .bodyText1,
                                           ),
                                           spacing5,
-                                          Text(args.population.toString()),
+                                          Text(
+                                            args.population.toString(),
+                                            style: text16Black,
+                                          ),
                                         ],
                                       ),
                                     ],
