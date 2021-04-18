@@ -2,7 +2,7 @@ import 'package:desafio_covid/app/controllers/continents_controller.dart';
 
 import 'package:flutter/material.dart';
 
-import 'home_data.dart';
+import 'widgets/home_data.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

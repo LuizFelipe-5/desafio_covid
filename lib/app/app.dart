@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:splashscreen/splashscreen.dart';
 
-import 'pages/country_details_page.dart';
-import 'pages/tab_details_page.dart';
-import 'pages/home_page.dart';
+import 'pages/country_details/country_details_page.dart';
+import 'pages/tab_details/tab_details_page.dart';
+import 'pages/home/home_page.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -45,6 +45,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => MyHomePage(),
+        '/homePage': (context) => HomeScreen(),
         '/tabContinents': (context) => TabContinents(),
         '/countryDetails': (context) => CountryDetails(),
       },

@@ -1,7 +1,7 @@
 import 'package:desafio_covid/app/shared/theme.dart';
 import 'package:flutter/material.dart';
 
-import 'home_data.dart';
+import '../home/widgets/home_data.dart';
 
 class TabContinents extends StatefulWidget {
   @override
@@ -79,7 +79,10 @@ class _TabContinentsState extends State<TabContinents> {
                                             .bodyText1,
                                       ),
                                       spacing5,
-                                      Text(args.cases.toString()),
+                                      Text(
+                                        args.cases.toString(),
+                                        style: text16Black,
+                                      ),
                                     ],
                                   ),
                                   spacing32,
