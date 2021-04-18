@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'home_data.dart';
 
 class TabContinents extends StatefulWidget {
-  //final gray = Color(0xFF969AA8);
-
   @override
   _TabContinentsState createState() => _TabContinentsState();
 }
@@ -36,10 +34,7 @@ class _TabContinentsState extends State<TabContinents> {
             ),
             title: Text(
               args.continent,
-              style: TextStyle(
-                color: Color(0xFF1E2243),
-                fontSize: 16,
-              ),
+              style: Theme.of(context).textTheme.subtitle1,
             ),
             leading: GestureDetector(
               onTap: () {
@@ -58,7 +53,10 @@ class _TabContinentsState extends State<TabContinents> {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 20.5,
+                        horizontal: 14.5,
+                      ),
                       child: Column(
                         children: [
                           Card(
@@ -66,18 +64,25 @@ class _TabContinentsState extends State<TabContinents> {
                               padding: const EdgeInsets.symmetric(vertical: 20),
                               child: Column(
                                 children: [
-                                  Text('Total'),
+                                  Text(
+                                    'Total',
+                                    style:
+                                        Theme.of(context).textTheme.subtitle1,
+                                  ),
+                                  spacing32,
                                   Column(
                                     children: [
                                       Text(
                                         'Total de casos',
                                         style: Theme.of(context)
                                             .textTheme
-                                            .headline6,
+                                            .bodyText1,
                                       ),
+                                      spacing5,
                                       Text(args.cases.toString()),
                                     ],
                                   ),
+                                  spacing32,
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
@@ -86,16 +91,16 @@ class _TabContinentsState extends State<TabContinents> {
                                         children: [
                                           Text(
                                             'Ativos',
-                                            style: TextStyle(color: gray),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyText1,
                                           ),
+                                          spacing8,
                                           Text(
                                             ((args.active * 100) / args.cases)
-                                                    .floor()
-                                                    .toString() +
+                                                    .toStringAsFixed(0) +
                                                 '%',
-                                            style: TextStyle(
-                                              color: Color(0xFF4461C2),
-                                            ),
+                                            style: textBlue,
                                           ),
                                         ],
                                       ),
@@ -103,17 +108,17 @@ class _TabContinentsState extends State<TabContinents> {
                                         children: [
                                           Text(
                                             'Curados',
-                                            style: TextStyle(color: gray),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyText1,
                                           ),
+                                          spacing8,
                                           Text(
                                             ((args.recovered * 100) /
                                                         args.cases)
-                                                    .floor()
-                                                    .toString() +
+                                                    .toStringAsFixed(0) +
                                                 '%',
-                                            style: TextStyle(
-                                              color: Color(0xFF5FD92B),
-                                            ),
+                                            style: textGreen,
                                           ),
                                         ],
                                       ),
@@ -121,16 +126,16 @@ class _TabContinentsState extends State<TabContinents> {
                                         children: [
                                           Text(
                                             'Óbitos',
-                                            style: TextStyle(color: gray),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyText1,
                                           ),
+                                          spacing8,
                                           Text(
                                             ((args.deaths * 100) / args.cases)
-                                                    .floor()
-                                                    .toString() +
+                                                    .toStringAsFixed(0) +
                                                 '%',
-                                            style: TextStyle(
-                                              color: Color(0xFFFF2665),
-                                            ),
+                                            style: textRed,
                                           ),
                                         ],
                                       )
@@ -145,7 +150,12 @@ class _TabContinentsState extends State<TabContinents> {
                               padding: const EdgeInsets.symmetric(vertical: 20),
                               child: Column(
                                 children: [
-                                  Text('Hoje'),
+                                  Text(
+                                    'Hoje',
+                                    style:
+                                        Theme.of(context).textTheme.subtitle1,
+                                  ),
+                                  spacing32,
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
@@ -154,8 +164,11 @@ class _TabContinentsState extends State<TabContinents> {
                                         children: [
                                           Text(
                                             'Casos',
-                                            style: TextStyle(color: gray),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyText1,
                                           ),
+                                          spacing5,
                                           Text(
                                             '+ ' + args.todayCases.toString(),
                                           ),
@@ -165,8 +178,11 @@ class _TabContinentsState extends State<TabContinents> {
                                         children: [
                                           Text(
                                             'Óbitos',
-                                            style: TextStyle(color: gray),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyText1,
                                           ),
+                                          spacing5,
                                           Text(
                                             '+ ' + args.todayDeaths.toString(),
                                             style: TextStyle(
@@ -187,7 +203,12 @@ class _TabContinentsState extends State<TabContinents> {
                                   const EdgeInsets.symmetric(vertical: 20.0),
                               child: Column(
                                 children: [
-                                  Text('Testes'),
+                                  Text(
+                                    'Testes',
+                                    style:
+                                        Theme.of(context).textTheme.subtitle1,
+                                  ),
+                                  spacing27,
                                   Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
@@ -196,8 +217,11 @@ class _TabContinentsState extends State<TabContinents> {
                                         children: [
                                           Text(
                                             'Realizados',
-                                            style: TextStyle(color: gray),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyText1,
                                           ),
+                                          spacing5,
                                           Text(args.tests.toString()),
                                         ],
                                       ),
@@ -205,8 +229,11 @@ class _TabContinentsState extends State<TabContinents> {
                                         children: [
                                           Text(
                                             'População',
-                                            style: TextStyle(color: gray),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyText1,
                                           ),
+                                          spacing5,
                                           Text(args.population.toString()),
                                         ],
                                       ),
@@ -234,20 +261,32 @@ class _TabContinentsState extends State<TabContinents> {
   }
 
   Widget buildListView(BuildContext context, HomeData args) {
-    return ListView.builder(
-      itemCount: args.countries.length,
-      itemBuilder: (_, index) {
-        return Card(
-          child: ListTile(
-            title: Text('${args.countries[index]}'),
-            trailing: Icon(Icons.arrow_forward_ios),
-            onTap: () {
-              Navigator.pushNamed(context, '/countryDetails',
-                  arguments: args.countries[index]);
-            },
-          ),
-        );
-      },
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: 20.5,
+        horizontal: 14.5,
+      ),
+      child: ListView.builder(
+        itemCount: args.countries.length,
+        itemBuilder: (_, index) {
+          return Card(
+            child: ListTile(
+              title: Text('${args.countries[index]}'),
+              trailing: Icon(
+                Icons.arrow_forward_ios,
+                size: 14.0,
+                color: Color(
+                  0xFF969AA8,
+                ),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/countryDetails',
+                    arguments: args.countries[index]);
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 }

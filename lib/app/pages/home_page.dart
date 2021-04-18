@@ -50,9 +50,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     'assets/images/$countryIcon.png',
                   ),
                 ),
-                title: Text(continent.continent),
-                subtitle: Text('${continent.countries.length} países'),
-                trailing: Icon(Icons.arrow_forward_ios),
+                title: Text(continent.continent,
+                    style: Theme.of(context).textTheme.bodyText2),
+                subtitle: Text(
+                  '${continent.countries.length} países',
+                  style: Theme.of(context).textTheme.caption,
+                ),
+                trailing: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 14.0,
+                  color: Color(
+                    0xFF969AA8,
+                  ),
+                ),
                 onTap: () {
                   Navigator.pushNamed(context, '/tabContinents',
                       arguments: HomeData(
@@ -129,13 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            'Covid-19',
-            style: TextStyle(
-              color: Color(0xFF1E2243),
-              fontSize: 16,
-            ),
-          ),
+          title: Text('Covid-19', style: Theme.of(context).textTheme.subtitle1),
           centerTitle: true,
           leading: CircleAvatar(
             backgroundColor: Color(0xFFFBFBFD),

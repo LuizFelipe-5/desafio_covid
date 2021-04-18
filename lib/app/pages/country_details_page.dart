@@ -1,4 +1,5 @@
 import 'package:desafio_covid/app/controllers/countries_controller.dart';
+import 'package:desafio_covid/app/shared/theme.dart';
 import 'package:flutter/material.dart';
 
 class CountryDetails extends StatefulWidget {
@@ -69,12 +70,12 @@ class _CountryDetailsState extends State<CountryDetails> {
                     child: Card(
                       child: Padding(
                         padding: const EdgeInsets.only(
-                            left: 16, right: 16, top: 122),
+                            left: 16, right: 16, top: 150),
                         child: Column(
                           children: [
                             Text(
                               controller.countries.country,
-                              style: TextStyle(fontSize: 20),
+                              style: Theme.of(context).textTheme.headline6,
                             ),
                             const SizedBox(
                               height: 48.0,
@@ -83,10 +84,9 @@ class _CountryDetailsState extends State<CountryDetails> {
                               children: [
                                 Text(
                                   'Total de casos',
-                                  style: TextStyle(
-                                    color: gray,
-                                  ),
+                                  style: Theme.of(context).textTheme.bodyText1,
                                 ),
+                                spacing5,
                                 Text(
                                   controller.countries.cases.toString(),
                                 ),
@@ -102,18 +102,17 @@ class _CountryDetailsState extends State<CountryDetails> {
                                   children: [
                                     Text(
                                       'Ativos',
-                                      style: TextStyle(
-                                        color: gray,
-                                      ),
+                                      style:
+                                          Theme.of(context).textTheme.bodyText1,
                                     ),
+                                    spacing8,
                                     Text(
                                       (controller.countries.active *
                                                   100 /
                                                   controller.countries.cases)
                                               .toStringAsFixed(0) +
                                           '%',
-                                      style:
-                                          TextStyle(color: Color(0xFF4461C2)),
+                                      style: textBlue,
                                     ),
                                   ],
                                 ),
@@ -121,19 +120,17 @@ class _CountryDetailsState extends State<CountryDetails> {
                                   children: [
                                     Text(
                                       'Curados',
-                                      style: TextStyle(
-                                        color: gray,
-                                      ),
+                                      style:
+                                          Theme.of(context).textTheme.bodyText1,
                                     ),
+                                    spacing8,
                                     Text(
                                       (controller.countries.recovered *
                                                   100 /
                                                   controller.countries.cases)
                                               .toStringAsFixed(0) +
                                           '%',
-                                      style: TextStyle(
-                                        color: Color(0xFF5FD92B),
-                                      ),
+                                      style: textGreen,
                                     ),
                                   ],
                                 ),
@@ -141,19 +138,17 @@ class _CountryDetailsState extends State<CountryDetails> {
                                   children: [
                                     Text(
                                       'Óbitos',
-                                      style: TextStyle(
-                                        color: gray,
-                                      ),
+                                      style:
+                                          Theme.of(context).textTheme.bodyText1,
                                     ),
+                                    spacing8,
                                     Text(
                                       (controller.countries.deaths *
                                                   100 /
                                                   controller.countries.cases)
                                               .toStringAsFixed(0) +
                                           '%',
-                                      style: TextStyle(
-                                        color: Color(0xFFFF2665),
-                                      ),
+                                      style: textRed,
                                     ),
                                   ],
                                 ),
@@ -170,8 +165,11 @@ class _CountryDetailsState extends State<CountryDetails> {
                   Positioned(
                     top: 30,
                     child: Center(
-                      child: Image.asset(
-                        'assets/images/france.png',
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(4.0),
+                        child: Image.network(
+                          controller.countries.countryInfo.flag,
+                        ),
                       ),
                     ),
                   ),

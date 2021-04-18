@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 import 'pages/country_details_page.dart';
@@ -8,12 +9,37 @@ import 'pages/home_page.dart';
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return MaterialApp(
       title: 'Splash Screen',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        textTheme: TextTheme(
-          headline6: TextStyle(color: Colors.pink, fontSize: 16),
+        fontFamily: 'Ubuntu',
+        primaryTextTheme: GoogleFonts.ubuntuTextTheme(
+          Theme.of(context).primaryTextTheme,
+        ),
+        textTheme: GoogleFonts.ubuntuTextTheme(textTheme).copyWith(
+          headline6: GoogleFonts.ubuntu(
+            textStyle: textTheme.headline6,
+            fontWeight: FontWeight.bold,
+          ),
+          bodyText2: GoogleFonts.ubuntu(
+            textStyle: textTheme.bodyText2,
+          ),
+          caption: GoogleFonts.ubuntu(
+            textStyle: textTheme.caption,
+            color: Color(0xFF969AA8),
+          ),
+          subtitle1: GoogleFonts.ubuntu(
+            textStyle: textTheme.subtitle1,
+            fontWeight: FontWeight.bold,
+          ),
+          bodyText1: GoogleFonts.ubuntu(
+            textStyle: textTheme.bodyText1,
+            color: Color(0xFF969AA8),
+            fontWeight: FontWeight.normal,
+          ),
         ),
       ),
       initialRoute: '/',
