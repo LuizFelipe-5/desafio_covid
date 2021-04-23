@@ -28,7 +28,7 @@
   <a href="#computer-install-instructions">Install instructions</a> •
   <a href="#zap-tech-stack">Tech Stack</a> •
   <a href="#handshake-contributing">Contributing</a> •  
-  <a href="#tophat-license">License</a> •
+  <a href="https://github.com/LuizFelipe-5/desafio_covid/blob/main/LICENSE">License</a> •
 </p>
 
 <p align="center">
